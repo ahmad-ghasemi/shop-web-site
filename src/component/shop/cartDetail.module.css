@@ -1,0 +1,63 @@
+
+.container{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: rgb(212, 208, 208);
+      overflow: hidden;
+}
+.container img {
+      margin : 20px 30px;
+      border: 1px solid darkgreen;
+      background-color: rgb(212, 208, 208);
+}
+.textContainer{
+      border: 1px solid black;
+      padding: 5px;
+      margin: 10px;
+      background-color: white;
+}
+.name{
+      font-size: 1rem;
+      font-weight: 600;
+      padding: 15px;  
+}
+.description{
+      font-size: 1rem;
+      font-weight: 400;
+      padding: 5px;
+}
+.category{
+      padding: 10px;
+      font-weight: 500;
+      color: cornflowerblue;
+}
+.brand{
+      padding: 10px ;
+      font-weight: 500;
+      color: rgb(80, 201, 86) ;
+}
+
+.countInStock{
+      padding: 5px;
+      margin : 15px;
+      font-weight: 500;
+      color:white;
+      background-color: yellowgreen;
+      width: fit-content;
+      border-radius: 20%;
+}
+.price{
+      padding: 5px;
+      margin : 15px;
+      font-weight: 500;
+      color:white;
+      border-radius: 20%;
+      background-color: yellowgreen;
+}
+.buttonContainer{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 0 50px;
+}

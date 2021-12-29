@@ -1,0 +1,58 @@
+.main{
+      display: flex;
+      justify-content: space-around;
+      margin: 30px 50px;
+      height: fit-content;
+      align-items: flex-start;
+}
+.checkOutBox{
+      margin: 30px;
+      border: 2px solid rgb(69, 58, 221);
+      padding: 10px;
+      border-radius: 10px;
+      background-color: #227a44;
+      position: fixed;
+      top: 30;
+      left: 0;
+}
+.checkOutBox button{
+
+       padding:0.35em 1.2em;
+       border:0.1em solid #FFFFFF;
+       margin:0 0.3em 0.3em 0;
+       border-radius:0.12em;
+       box-sizing: border-box;
+       text-decoration:none;
+       font-family:'Roboto',sans-serif;
+       font-weight:300;
+       color:steelblue ;
+       text-align:center;
+       transition: all 0.2s;
+       border-radius: 10px;
+       background-color: #fafafa;
+}
+.checkOutBox button:hover{
+      color:#000000;
+      background-color:#FFFFFF;
+      }
+.checkOutBox button:active{
+      background-color: violet;
+}
+.checkOutBox p{
+      margin: 10px;
+      background-color: rgb(39, 46, 41);
+      border-radius: 5px;
+      width:fit-content ;
+      padding: 2px;
+      font-weight: 600;
+      text-align: center;
+      color: #FFFFFF;
+}
+.checkOutBox span{
+      display: flex;
+      align-items: center;
+
+}
+.continer{
+      margin: 20px;
+}
