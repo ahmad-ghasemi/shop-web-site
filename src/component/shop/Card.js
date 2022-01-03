@@ -1,14 +1,5 @@
 import React from 'react'
 import { Link , Outlet } from 'react-router-dom'
-import { useSelector , useDispatch } from 'react-redux'
-import {
-       addItem ,
-       removeItem ,
-       increase ,
-       decrease ,
-        } 
-      from '../redux/action/CartAction'
-import Button from 'react-bootstrap/Button';
 
 
 // image
@@ -54,19 +45,8 @@ const Card = (props) => {
    }
 
 }
-    const state = useSelector( state=> state.cartState);
-    const dispatch = useDispatch();
  
-      var condition = 0;    
-    const quantityCount = (state, _id) => {
-            const index = state.selectedItems.findIndex(item => item._id === _id);
-            if (index === -1) {
-                return false
-            } else {
-                condition = state.selectedItems[index].count;
-                return  state.selectedItems[index].count;
-            }
-        }
+   
         
       return (
             <div className={Style.cardContiner}>
@@ -79,25 +59,25 @@ const Card = (props) => {
                 
                 <p className={Style.price}>{data.price} $</p>
                 <div className={Style.btn}>
-                {
+                {/* {
                    quantityCount(state , data._id) && condition >= 1 ? 
-                <Button onClick={() => dispatch(increase(data)) } >+</Button> :
-                <Button onClick={() => dispatch(addItem(data)) } variant='success' >add to cart</Button> 
+                <Button onClick={() => dispatch(increase(data)) } style={{backgroundColor : "#207D7C"}}>+</Button> : */}
+                {/* <Button onClick={() => dispatch(addItem(data)) } style={{backgroundColor : "#207D7C"}} >Show Details</Button>  */}
                 
-              }
-              
-            {  quantityCount(state, data._id) && <Button className={Style.Buttun}>{condition}</Button>}
+              {/* } */}
+{/*               
+            {  quantityCount(state, data._id) && <Button className={Style.Buttun} style={{backgroundColor : "#207D7C"}} >{condition}</Button>}
              
              
               {
                 quantityCount(state , data._id) === 1 &&
-                <Button onClick={() => dispatch(removeItem(data))}><i className="icon-trash"></i></Button>
+                <Button onClick={() => dispatch(removeItem(data))} style={{backgroundColor : "#B43C4C"}}  ><i className="icon-trash"></i></Button>
               }
               {
                  quantityCount(state , data._id) > 1 &&
-                <Button onClick={() => dispatch(decrease(data))} >-</Button>
+                <Button onClick={() => dispatch(decrease(data))} style={{backgroundColor : "#207D7C"}} >-</Button>
 
-              }
+              } */}
                 </div>
               
                 </div>

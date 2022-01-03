@@ -8,7 +8,7 @@ const rootReducer = combineReducers({
       productState : ProductsReducer ,
       cartState : cartReducer ,
       profileState : ProfileReducer,
-      CheckOutState : CheckOutReducer 
+      CheckOutState : CheckOutReducer ,
 })
 
 export default rootReducer;

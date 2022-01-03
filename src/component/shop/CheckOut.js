@@ -46,7 +46,7 @@ const CheckOut = () => {
             if(checkOutData.data.itemsPrice){
                   navigate('/shiping')
             }
-      }, [checkOutData])
+      }, [checkOutData.data])
       useEffect(()=>{
             if(checkOutData.data.itemsPrice) {
                   dispatch(checkOut())
@@ -58,6 +58,7 @@ const CheckOut = () => {
       // }}, [checkOutData])
       
       return (
+            <>
             <ThemeProvider theme={theme}>
              <Container component="main" maxWidth="xs" sx={{border: "1px solid blue" , marginTop:4}}>
               <CssBaseline />
@@ -138,8 +139,9 @@ const CheckOut = () => {
                </Box>
               </Box>   
              </Container>
-             <Footer/>
             </ThemeProvider>
+             <Footer/>
+          </>
       );
 };
 

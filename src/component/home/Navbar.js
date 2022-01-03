@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   AppBar,
   Toolbar,
@@ -6,6 +6,7 @@ import {
   Typography,
   makeStyles,
 } from "@material-ui/core";
+import Button from 'react-bootstrap/Button';
 import { Link , Outlet } from 'react-router-dom'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { useSelector } from "react-redux";
@@ -53,6 +54,7 @@ const useStyles = makeStyles((theme) => ({
         textDecoration: "none",
         color: "white",
         width: "25px",
+        height: "25px" ,
         borderRadius: "12px" ,
         cursor: "pointer" ,
         padding : "1px",
@@ -68,7 +70,7 @@ function Navbar() {
   const classes = useStyles();
   const { data } = useSelector(state => state.profileState);
   const state = useSelector(state => state.cartState)
-  
+  const [ status , setStatus ] = useState(false);
   
 
   return (
@@ -93,13 +95,22 @@ function Navbar() {
           </Link>
           }
           {
-            data.token ? <Link to='/profile' style={{textDecoration:"none"}} ><img className={classes.icon} alt="profile" src={prof} /></Link>  :
+            data.token ? <img onClick={() => setStatus(!status) } className={classes.icon} alt="profile" src={prof} /> :
             <Link to='/login' style={{textDecoration:"none"}}><h1 className={classes.login}>Login</h1> </Link>
           }
             <Outlet />
           </div>
       </Toolbar>
-    </AppBar>
+    </AppBar> 
+    {
+      status &&  <div className={Style.profileBox}>
+      <p>name : <span>{data.name} </span></p> 
+      <p>email : <span> {data.email}</span></p>
+      <Button>Log Out</Button>
+      <Link to='/profile' style={{textDecoration:"none"}} > <Button>Profile</Button></Link> 
+    </div>
+    }
+    
     </div>
   );
 }

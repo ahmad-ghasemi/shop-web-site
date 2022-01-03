@@ -1,57 +1,47 @@
 .main{
       display: flex;
-      justify-content: space-around;
-      margin: 30px 50px;
+      justify-content: space-between;
       height: fit-content;
       align-items: flex-start;
+      margin: 20px;
+      
 }
 .checkOutBox{
       margin: 30px;
-      border: 2px solid rgb(69, 58, 221);
-      padding: 10px;
-      border-radius: 10px;
-      background-color: #227a44;
-      position: fixed;
+      /* padding: 10px; */
+      background-color: #e0dbdb;
+      position: relative;
       top: 30;
-      left: 0;
+      right: 0;
+      width: 25%;
 }
-.checkOutBox button{
-
-       padding:0.35em 1.2em;
-       border:0.1em solid #FFFFFF;
-       margin:0 0.3em 0.3em 0;
-       border-radius:0.12em;
-       box-sizing: border-box;
-       text-decoration:none;
-       font-family:'Roboto',sans-serif;
+.ContinueButton{
+       margin: 0;
        font-weight:300;
-       color:steelblue ;
+       color: white;
        text-align:center;
        transition: all 0.2s;
-       border-radius: 10px;
-       background-color: #fafafa;
+      background-color:  #3f51b5;
+       padding: 10px;
+       text-decoration: none;
 }
-.checkOutBox button:hover{
-      color:#000000;
-      background-color:#FFFFFF;
-      }
-.checkOutBox button:active{
-      background-color: violet;
+.checkOutBox :link{
+      text-decoration: none;
 }
+
 .checkOutBox p{
       margin: 10px;
-      background-color: rgb(39, 46, 41);
       border-radius: 5px;
       width:fit-content ;
       padding: 2px;
       font-weight: 600;
       text-align: center;
-      color: #FFFFFF;
-}
-.checkOutBox span{
       display: flex;
       align-items: center;
-
+}
+.checkOutBox span{
+    font-weight: 400;
+    margin: 5px 0 5px 15px;
 }
 .continer{
       margin: 20px;

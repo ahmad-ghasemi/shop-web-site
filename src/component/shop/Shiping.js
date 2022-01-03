@@ -1,23 +1,15 @@
 import React, { useEffect } from 'react';
 import {Alert} from 'react-bootstrap'
-import { useSelector , useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
 import Button from 'react-bootstrap/Button';
-// import { checkOut } from '../redux/action/CartAction';
 
 
 
 
 const Shiping = () => {
       const { name } = useSelector(state => state.profileState.data)
-      // const checkOutdata = useSelector(state => state.CheckOutState)
-      const dispatch = useDispatch()
       const navigate = useNavigate();
-//      useEffect(()=>{
-//            if(!!Object.key(checkOutdata.data).length) {
-//                  dispatch(checkOut())
-//            }
-//      }, [checkOutdata , dispatch])
      useEffect(()=>{
            if (!name) {
                  navigate('/login')

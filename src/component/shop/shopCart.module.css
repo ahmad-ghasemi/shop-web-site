@@ -1,84 +1,94 @@
 .continer{
       display: flex;
-      justify-content: space-around;
       align-items: center;
-      margin: 30px 0 0 0;
-      width: 600px;
+      width: 100%;
       
       
       
 }
 .productDetail{
       display: flex;
-      justify-content: space-between;
-      width: 100%;
+      justify-content: flex-start ;
+      width: 80%;
       height: 100%;
-      border: 2px solid black;
+      border: 2px solid #fafafa;
       padding: 20px;
       height: 200px;
-      background-color: #fafafa;
+      background-color: #e0dbdb;
       align-items: center;
-      border: 2px solid rgb(69, 58, 221);
-      border-radius: 10px;
-      background-color: #227a44;
+      margin: 20px 0 0 5%;
 
 }
 .productDetail img{
-      width: 90px;
-      background-color: #227a44;
-      border-radius: 20px;
+      width: 10%;
 
 }
 .productDetail p{
-      margin: 10px;
-      background-color: #227a44;
-
+      font-weight: 300;
+      margin: 1%;
 }
 .productDetail span{
-      color: #fff;
-      margin: 0 10px 20px 18px;
-      background-color: rgb(39, 46, 41);
-      border-radius: 5px;
-      width: 100px;
-      padding: 2px;
-      font-weight: 600;
-      font-size: larger;
+      color: rgb(48, 46, 46);
+      width: 10%;
+      font-weight: 300;
       text-align: center;
-      height: 31px;
+      margin: 15px;
+      
 }
 .productDetail h4{
-      padding:0.35em 1.2em;
-      font-size: medium;
-      font-weight: 600;
-      background-color: #fafafa;
-      color:steelblue ;
-      border:0.1em solid rgb(39, 46, 41);
-      border-radius: 10px;
+      font-weight: 200;
+      background-color: #e0dbdb;
+      color: black ;
       box-sizing: border-box;
-      margin-top: 8px;
 }
 .productDetail button{
-      
-      padding:0.35em 1.2em;
-      border:0.1em solid rgb(39, 46, 41);
-      margin: 7px;
-      border-radius:0.12em;
+      margin: 3%;
       box-sizing: border-box;
       text-decoration:none;
       font-family:'Roboto',sans-serif;
-      font-weight:500;
-      color:steelblue ;
+      font-weight:200;
       text-align:center;
       transition: all 0.2s;
-      border-radius: 10px;
-      background-color: #fafafa;
+      background-color: #e0dbdb;
+      border: none;
 }
 .productDetail button:hover{
-      color:#000000;
-      background-color:#FFFFFF;
+      color:#FFFFFF;
 }
 .checkOutBox{
       width: 30%;
       height: 100px;
       border: 2px solid black;
+}
+.actionDetails{
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+}
+.button{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 3%;
+      margin-left: 5%;
+}
+.button button{
+      margin: 8px;
+}
+.titr{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #e0dbdb;
+}
+.titr p{
+      margin-left: -80px;
+}
+.titrDetails{
+      display: flex;
+      justify-content: space-between;
+      align-items: center; 
+}
+.titrDetails p {
+      margin: 15px;
 }

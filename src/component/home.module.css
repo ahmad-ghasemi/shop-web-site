@@ -1,0 +1,21 @@
+.seProducts{
+      text-align:center;
+      margin:10px ;
+      padding:10px ;
+      font-size:larger; 
+      background-color: #ece3e3;
+}
+.seMenu{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      list-style-type: none;
+}
+.seMenu li{
+      margin:15px;
+}
+.seMenu li:hover{
+      color: rgb(72, 122, 216);
+      text-decoration: underline;
+}
