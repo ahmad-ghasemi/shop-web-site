@@ -14,3 +14,8 @@ export const ChangeProfileAction = (dataChange , token) => (dispatch) => {
              .then(response => dispatch({type: "GET_PROFILE_SUCCSESS" , payload: response.data}))
              .catch(error => dispatch({type:"GET_PROFILE_FAILURE" , payload: error.status}))
 }
+export const deletProfileAction = () => (dispatch) => {
+             return {
+                   type:"PROFILE_DELETE" 
+             }
+}

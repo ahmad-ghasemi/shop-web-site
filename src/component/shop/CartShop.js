@@ -65,24 +65,25 @@ const CartShop = (props) => {
                 
             <div className={Style.continer}>
                   <div className={Style.productDetail}>
-                  <button onClick={() => dispatch(removeItem(data))}><img src={delet} alt='deleteIcon' style={{width: '20px'}}></img></button>
+                        <div>
+                        <button onClick={() => dispatch(removeItem(data))}><img src={delet} alt='deleteIcon' style={{width: '20px'}}></img></button>
                         <img src={ImageSelector(data._id)} alt={data.name}/>
+                        </div>
                    <div className={Style.actionDetails}>
-                   <p>{data.name}</p>
-                   <span style={{marginLeft:'5%'}}>${data.price}</span>
+                        <p>{data.name}</p>
+                        <span style={{marginLeft:'5%'}}>${data.price}</span>
+                        </div>
                    <div className={Style.button}>
-                   <button onClick={() => dispatch(increase(data)) } >+</button>
-                   <p style={{fontWeight: 'bold'}}>{data.count}</p>
-                            {
-                                  
-                                  <button onClick={() => dispatch(decrease(data))} >-</button>
-                                  
-                              }
+                        <button onClick={() => dispatch(increase(data)) } >+</button>
+                        <p style={{fontWeight: 'bold'}}>{data.count}</p>
+                            {          
+                        <button onClick={() => dispatch(decrease(data))} >-</button>
+                            }
                    </div>
                    <span >${ (data.price * data.count).toFixed(2)} </span>
                     
-                              </div>
                   </div>
+                  
                   
                   
             </div>

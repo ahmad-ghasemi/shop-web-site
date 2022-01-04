@@ -1,31 +1,71 @@
+.navbar{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color:  #3f51b5;
+      color: #fff;
+}
+.menu{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+}
+.home{
+      margin :20px;
+      cursor: pointer;
+      text-decoration: none;
+      color: #fff;
+ 
+}
+.about{
+      cursor: pointer;
+      color: #fff;
+      margin: 20px;
+}
+.shop{
+      cursor: pointer;
+      color: #fff;
+      margin: 20px;
+}
+.login{
+      cursor: pointer;
+      color: #fff;
+      margin: 20px;
+}
+.cartIcon{
+      cursor: pointer;
+      margin: 20px;
+}
 .counter{
       position: absolute;
-      top : 0 ;
-      right: -30 ;
+      left: 15px;
+      top: -40%;
       text-align: center ;
       color: rgb(244, 239, 248) ;
-      width: 18px ;
-      height: 18px ;
-      background-color: royalblue;
+      width: 10px ;
+      height: 10px ;
+      font-weight: 500;
       border-radius: 10px;
-
-
 }
-.main{
-      position: fixed;
-      top: 0;
-      width: 100%;
+.profileImg{
+      cursor: pointer;
+      margin: 20px;
 }
+.logoType{
+      margin-left: 20px;
+}
+
 .profileBox{
       width: fit-content;
       height: fit-content;
       border: 1px solid black;
       padding: 10px;
       right: 0;
+      top:12%;
       position: absolute;
       z-index: 1;
       margin: 5px 10px;
-      background-color: #ececec;
+      background-color: #fff;
       border-radius: 5px;
 }
 .profileBox p {
@@ -40,3 +80,4 @@
 .profileBox Button{
       background-color : #3f51b5;
 }
+

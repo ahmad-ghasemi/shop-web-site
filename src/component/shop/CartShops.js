@@ -13,28 +13,17 @@ const CartShops = () => {
              
               <div className={Style.main} >
                     <div>
-
-              <table >
-                   <tr>
-                       <th style={{
-                             display: 'flex' ,
-                              justifyContent:'space-around',
-                              textAlign: 'center',
-                              marginTop:'30px',
-                              marginLeft: '5%' ,
-                              backgroundColor: '#e0dbdb',
-                              width:'80%'
-                               }}>   <p>PRODUCT</p>
-                               <div style={{display: 'flex' , textAlign: 'center' , alignItems: 'center' }}>
-                              <p style={{marginLeft:'5%'}}>PRICE  </p>
-                              <p style={{marginLeft:'15%'}}>QUANTITY  </p>
-                              <p style={{marginLeft:'15%'}}>TOTAL </p>
-                               </div>
-                       </th>
+                        <p className={Style.boxHeader}> 
+                              <p>PRODUCT</p>
+                              <span style={{marginLeft:'25%'}}>PRICE  </span>
+                              <span style={{marginLeft:'2%'}}>QUANTITY  </span>
+                              <span style={{marginLeft:'2%'}}>TOTAL </span>
+                              
+                       </p>
                       
-                   </tr>
+                       <table >
                    <tr>
-                    <td>
+                    <td className={Style.cart}>
                      {state.selectedItems.map(item =><CartShop key={item._id} data={item}/> )}
                     </td>
                  

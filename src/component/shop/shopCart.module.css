@@ -20,7 +20,7 @@
 
 }
 .productDetail img{
-      width: 10%;
+      width: 50%;
 
 }
 .productDetail p{
@@ -33,7 +33,6 @@
       font-weight: 300;
       text-align: center;
       margin: 15px;
-      
 }
 .productDetail h4{
       font-weight: 200;
@@ -91,4 +90,26 @@
 }
 .titrDetails p {
       margin: 15px;
+}
+@media (max-width:550px) {
+      .actionDetails{
+            display: grid;
+      }
+      .titrDetails{
+            display: grid;
+      }
+      .actionDetails{
+            display: grid;
+      }
+      .actionDetails span{
+            margin: auto;
+            align-items: center;
+      }
+      .productDetail{
+            display: grid;
+            height: fit-content;
+      }
+      .button{
+            margin:5px
+      }
 }

@@ -78,6 +78,8 @@ const CartDetail = (props) => {
     return (
           <div className={styles.container}>
             <div className={styles.textContainer}>
+            <Link to="/shop" ><ArrowCircleRightTwoToneIcon fontSize='large' style={{display:'block' , right: 0}}/></Link>
+              <div className={styles.logoImageProduct}>
               <div className={styles.logoAll}>
                 <img src={favorite} alt='favorite' style={{cursor:'pointer'}} ></img>
                 <br/>
@@ -86,6 +88,7 @@ const CartDetail = (props) => {
                 <img src={alarm} alt='alarm' style={{cursor:'pointer'}}></img>
               </div>
               <img className={styles.image} src={ImageSelector(product._id)} alt="product" />
+              </div>
               <div className={styles.descriptionAll}>
                 <p className={styles.name}>{product.name}</p>
                 <p className={styles.description}>{description}</p>
@@ -112,8 +115,8 @@ const CartDetail = (props) => {
                   <br/>
                      {
                        quantityCount(state , product._id) && condition >= 1 ? 
-                       <Button onClick={() => dispatch(increase(product)) } style={{backgroundColor : "#3f51b5" , marginLeft: '25px'}}>+</Button> : 
-                       <Button onClick={() => dispatch(addItem(product)) } style={{ backgroundColor : "#3f51b5" ,  margin: "5px 5px 5px 15px" , width:'200px'}} >Add to Cart</Button>  
+                       <Button onClick={() => dispatch(increase(product)) } style={{backgroundColor : "#3f51b5" }}>+</Button> : 
+                       <Button onClick={() => dispatch(addItem(product)) } className={styles.addToCart}  >Add to Cart</Button>  
                        
                       } 
           
@@ -130,7 +133,6 @@ const CartDetail = (props) => {
                 
               }
                 </div>
-            <Link to="/shop" ><ArrowCircleRightTwoToneIcon fontSize='large' style={{marginBottom:'350px'}}/></Link>
             </div>  
         </div>
     );

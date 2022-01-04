@@ -20,6 +20,7 @@
     "flat-carousel": "0.0.1-beta.2",
     "react": "^17.0.2",
     "react-bootstrap": "^2.0.4",
+    "react-bootstrap-icons": "^1.7.2",
     "react-dom": "^17.0.2",
     "react-hook": "^0.0.1",
     "react-material-ui-carousel": "^2.3.8",

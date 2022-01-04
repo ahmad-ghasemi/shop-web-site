@@ -4,7 +4,7 @@ import Home from './component/Home';
 import Shop from './component/Shop.js';
 import Login from './component/log/Login';
 import About from './component/About';
-import Navbar from './component/home/Navbar';
+import NavBar from './component/home/Navbar';
 import SignUp from './component/log/SignUp';
 import { Provider } from 'react-redux';
 import Store from './component/redux/Store';
@@ -18,7 +18,7 @@ function App() {
   return (
     
      <Provider store={Store} >
-     <Navbar/>
+     <NavBar/>
       <Routes>
         <Route path='/' element={<Home/>}></Route>
         <Route path='/shop' element={<Shop />}></Route>

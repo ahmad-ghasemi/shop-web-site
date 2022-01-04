@@ -1,9 +1,9 @@
 .main{
       display: flex;
-      justify-content: space-between;
+      justify-content: space-around;
       height: fit-content;
       align-items: flex-start;
-      margin: 20px;
+      width: 100vw;
       
 }
 .checkOutBox{
@@ -45,4 +45,56 @@
 }
 .continer{
       margin: 20px;
+}
+.boxHeader{
+      display: flex ;
+      justify-content:space-around;
+      text-align: center;
+      margin-top:30px;
+      margin-left: 5% ;
+      background-color: #e0dbdb;
+      width:730px;
+
+}
+@media (max-width: 980px){
+      .main{
+            display: grid;
+      }
+      .checkOutBox{
+            width: 250px;
+            top:20px;
+            margin: auto;
+            align-items: center;
+      }
+      .boxHeader{
+            margin: auto;
+            align-items: center;
+            margin-top:20px;
+      }
+      .cart{
+            margin: auto;
+            align-items: center;
+      }
+}
+@media (max-width:650px) {
+      .boxHeader{
+            width:550px
+      }
+      .boxHeader span{
+            display: none;
+      }
+      
+}
+@media (max-width:550px) {
+      .boxHeader{
+            width:450px
+      }
+      
+}
+@media (max-width:450px) {
+      .boxHeader{
+            width:350px
+
+      }
+      
 }

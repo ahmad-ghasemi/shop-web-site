@@ -12,6 +12,12 @@ const ProfileReducer = (state = initialState , action) => {
                   return {loading: false , data: action.payload}
             case "GET_PROFILE_FAILURE":
                   return{...state , loading: false , error: action.payload }
+             case "PROFILE_DELETE"    :
+                        return{
+                              loading: false ,
+                              data: {},
+                              error:""
+                        } 
             default:
                  return state 
       }
