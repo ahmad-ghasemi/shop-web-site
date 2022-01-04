@@ -13,6 +13,8 @@ import { useNavigate } from 'react-router-dom';
 import { orderItemsCreator } from '../helper/function';
 import { checkOut } from '../redux/action/CartAction';
 import Footer from '../home/Footer';
+import { ToastContainer, toast } from 'react-toastify';
+
 
 
 
@@ -44,6 +46,7 @@ const CheckOut = () => {
       } ,[token , navigate])
       useEffect(()=>{
             if(checkOutData.data.itemsPrice){
+                  toast.success("Wow so easy!")
                   navigate('/shiping')
             }
       }, [checkOutData.data])
@@ -141,6 +144,7 @@ const CheckOut = () => {
              </Container>
             </ThemeProvider>
              <Footer/>
+          <ToastContainer />
           </>
       );
 };

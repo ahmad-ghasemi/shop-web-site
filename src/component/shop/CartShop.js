@@ -1,6 +1,6 @@
 import React from 'react';
 import Style from './shopCart.module.css'
-import { useSelector , useDispatch } from 'react-redux';
+import {  useDispatch } from 'react-redux';
 import {increase , decrease , removeItem } from '../redux/action/CartAction'
 
 
@@ -28,18 +28,9 @@ const amazon = "61af0ae4c971af479002de95";
 const CartShop = (props) => {
       const {data} = props
       
-      const state = useSelector(state => state.cartState)
       const dispatch = useDispatch()
       
-      const quantityCount = (state, _id) => {
-            const index = state.selectedItems.findIndex(item => item._id === _id);
-            if (index === -1) {
-                return false
-            } else {
-                
-                return  state.selectedItems[index].count;
-            }
-        }
+
       const ImageSelector =(image)=>{
             switch (image) {
             case canon:

@@ -16,6 +16,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Link , useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector  } from 'react-redux';
 import { loginAction } from '../redux/action/loginAction';
+import { ToastContainer, toast } from 'react-toastify';
 
 
 
@@ -44,6 +45,7 @@ export default function Login() {
   useEffect(()=>{
     console.log(token)
     if(token){
+     toast.success("Wow so easy!")
       navigate("/shop")
     }
   } , [navigate , token])
@@ -126,6 +128,7 @@ useEffect(()=>{
           </Box>
         </Box>
       </Container>
+      <ToastContainer/>
     </ThemeProvider>
   );
 } 

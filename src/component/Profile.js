@@ -5,7 +5,9 @@ import { TextField , Button , Box , InputLabel } from "@mui/material";
 import { useSelector , useDispatch} from "react-redux";
 import { ChangeProfileAction } from "./redux/action/changeProfileAction";
 import { Link } from "react-router-dom";
-import style from './Profile.module.css'
+import style from './Profile.module.css';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -25,7 +27,10 @@ const Profile = () => {
       }
       const sendData = ()=>{
             dispatch(ChangeProfileAction(data , profileData.data.token))
+            toast.success("Wow so easy!")
+             
       }
+    
  
   return (
     <div>
@@ -137,6 +142,7 @@ const Profile = () => {
       </Button>
       </Box>
           </Box>
+          <ToastContainer />
     </div>
   );
 };
