@@ -4,6 +4,7 @@
       align-items: center;
       background-color:  #3f51b5;
       color: #fff;
+      height: 50px;
 }
 .menu{
       display: flex;

@@ -1,36 +1,32 @@
 import React, { useState } from "react";
-import {
-  AppBar,
-  Toolbar,
-  CssBaseline,
-  Typography,
-  makeStyles,
-} from "@material-ui/core";
 import cart from "../image/cart.svg"
-import { Container , Nav } from "react-bootstrap";
-import { Navbar } from "react-bootstrap";
 import Button from 'react-bootstrap/Button';
-import { Link , Outlet } from 'react-router-dom'
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { Link, useNavigate } from 'react-router-dom'
 import { useSelector , useDispatch} from "react-redux";
 import Style from './navbar.module.css'
 import prof from '../image/youngMen.jpg'
-import { deletProfileAction } from '../redux/action/changeProfileAction'
+import { deletProfileAction } from '../redux/action/deletProfileAction'
 import { useEffect } from "react";
 
 
  function NavBar() {
-//   const classes = useStyles();
-   const { data } = useSelector(state => state.profileState);
-   const state = useSelector(state => state.cartState)
+  const { data } = useSelector(state => state.profileState);
+  const state = useSelector(state => state.cartState)
   const [ status , setStatus ] = useState(false);
   const [ logout , setLogout ] = useState(false);
   const dispatch = useDispatch();
+  const navigate = useNavigate()
   useEffect(()=>{
     if(logout){
       dispatch(deletProfileAction())
     }
   } , [logout])
+  useEffect(()=>{
+    if(!data.id){
+      setStatus(false)
+      navigate('/login')
+    }
+  }, [data , status])
   
   return (
 <>
@@ -39,6 +35,12 @@ import { useEffect } from "react";
       <div className={Style.menu}>
         <Link to='/' style={{textDecoration:"none" }}> <p className={Style.home}>Home</p> </Link>
         <Link to='/shop' style={{textDecoration:"none" }}> <p className={Style.shop}>Shop</p></Link>
+        <p className={Style.cartIcon}>
+          <span style={{textDecoration:"none" , position: "relative"}}> 
+          <Link to='/buy' style={{textDecoration:"none" }}><img src={cart} alt="cartIcon"  /> </Link> 
+          <p className={Style.counter}>{state.itemsCounter}</p>
+          </span>
+        </p>
         <p className={Style.profileImg}>
           {
             data.token ? <img onClick={() => setStatus(!status)} style={{ 
@@ -51,12 +53,6 @@ import { useEffect } from "react";
                       }} alt="profile" src={prof} /> :
                        <Link to='/login' style={{textDecoration:"none" }} ><p className={Style.login}>Login</p></Link> 
           }
-        </p>
-        <p className={Style.cartIcon}>
-          <span style={{textDecoration:"none" , position: "relative"}}> 
-          <Link to='/buy' style={{textDecoration:"none" }}><img src={cart} alt="cartIcon"  /> </Link> 
-          <p className={Style.counter}>{state.itemsCounter}</p>
-          </span>
         </p>
         
       </div>

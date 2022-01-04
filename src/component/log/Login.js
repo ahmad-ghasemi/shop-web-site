@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { useState , useEffect } from 'react'
+import  Validate  from './Validation'
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -20,30 +21,41 @@ import { loginAction } from '../redux/action/loginAction';
 
 const theme = createTheme();
 export default function Login() {
+
+  const [errors , setErrors] = useState({});
+  const [focus , setFocus] = useState({});
   const dispatch = useDispatch();
   const {token} =useSelector(state => state.profileState.data)
-  const [email , setEmail] = useState("");
-  const [password , setPassword] = useState("");
-  const GetEmail = (e) => {
-    setEmail(e.target.value)
-    console.log(email)
-  }
-  const GetPassword = (e) => {
-    setPassword(e.target.value)
-    console.log(password)
+  const [data , setData] = useState({
+    email: "",
+    password: ""
+  });
+
+  const GetData = (e) => {
+    setData({...data , [e.target.name] : e.target.value})
+    console.log(data)
   }
   const HandleSubmit = (event) => { 
     event.preventDefault();
-    dispatch(loginAction(email , password))
+    dispatch(loginAction(data))
   }
   const navigate = useNavigate();
+
   useEffect(()=>{
     console.log(token)
     if(token){
       navigate("/shop")
     }
-
   } , [navigate , token])
+  
+useEffect(()=>{
+    setErrors(Validate(data))
+ },[data , focus ])
+
+
+  const TouchHandler = (event) =>{
+    setFocus({...focus , [event.target.name] : true})
+  }
   return (
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
@@ -64,7 +76,7 @@ export default function Login() {
           </Typography>
           <Box component="form" onSubmit={HandleSubmit}  noValidate sx={{ mt: 1 }}>
             <TextField sx={{border: 0}}
-            onChange={GetEmail}
+            onChange={GetData}
               margin="normal"
               required
               fullWidth
@@ -72,11 +84,12 @@ export default function Login() {
               label="Email Address"
               name="email"
               autoComplete="email"
-              autoFocus
-              
+              onFocus={TouchHandler}
+              helperText={ focus.email && errors.email}
+
             />
             <TextField
-              onChange={GetPassword} 
+              onChange={GetData} 
               margin="normal"
               required
               fullWidth
@@ -85,6 +98,8 @@ export default function Login() {
               type="password"
               id="password"
               autoComplete="current-password"
+              helperText={ focus.password && errors.password}
+
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
@@ -113,4 +128,5 @@ export default function Login() {
       </Container>
     </ThemeProvider>
   );
-}
+} 
+
