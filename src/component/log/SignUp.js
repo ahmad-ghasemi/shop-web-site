@@ -15,6 +15,8 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Link , useNavigate } from 'react-router-dom'
 import Validate from './Validation';
 import { useDispatch , useSelector } from 'react-redux';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { signUpAction } from '../redux/action/signUpAction';
 
 function Copyright(props) {
@@ -32,7 +34,7 @@ const theme = createTheme();
 export default function SignUp() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const {token} = useSelector(state => state.profileState.data);
+  const profileData = useSelector(state => state.profileState);
 
   const [data , setData] = useState({
     name : "",
@@ -40,11 +42,15 @@ export default function SignUp() {
     confrimPassword : "",
     email : ""
   });
+  const [errors , setErrors] = useState({});
   const HandleSubmit = (event) => {
     event.preventDefault();
-     dispatch(signUpAction(data.name , data.email , data.password))
+    if (errors===''){
+      dispatch(signUpAction(data.name , data.email , data.password))
+    } else{
+      toast.error("complete errors")
+    }
   };
-  const [errors , setErrors] = useState({});
   const [focus , setFocus] = useState({});
   const DataHandler = event =>{
     setData({...data , [event.target.name] : event.target.value })
@@ -54,10 +60,18 @@ export default function SignUp() {
       console.log(data)
    },[data , focus ])
    useEffect(()=>{
-       if(token){
+       if(profileData.data.token){
          navigate("/")
        }
-   },[navigate , token] )
+   },[navigate , profileData.data.token] )
+    useEffect(()=>{
+     if(profileData.error.message === "Request failed with status code 400"){
+      toast.error("Request failed with status code 400")
+    }else if(profileData.error.message ==="Network Error"){
+      toast.error("Network Error")
+    }
+
+   },[profileData.error.message])
 
    const TouchHandler = (event) =>{
      setFocus({...focus , [event.target.name] : true})
@@ -194,6 +208,8 @@ export default function SignUp() {
         <Copyright sx={{ mt: 5 }} />
       </Container>
     </ThemeProvider>
+    <ToastContainer />
+
       
      </>
 

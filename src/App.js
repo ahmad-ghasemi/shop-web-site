@@ -15,6 +15,7 @@ import Shiping from './component/shop/Shiping';
 import Profile from './component/Profile';
 
 function App() {
+  
   return (
     
      <Provider store={Store} >

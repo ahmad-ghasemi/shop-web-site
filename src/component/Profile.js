@@ -4,7 +4,7 @@ import profileImage from "../component/image/youngMenOfficial.jpg";
 import { TextField , Button , Box , InputLabel } from "@mui/material";
 import { useSelector , useDispatch} from "react-redux";
 import { ChangeProfileAction } from "./redux/action/changeProfileAction";
-import { Link } from "react-router-dom";
+import { Link , useNavigate } from "react-router-dom";
 import style from './Profile.module.css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -27,13 +27,43 @@ const Profile = () => {
       }
       const sendData = ()=>{
             dispatch(ChangeProfileAction(data , profileData.data.token))
-            toast.success("Wow so easy!")
+            toast.success("profile data changed!")
              
       }
+      const navigate = useNavigate();
+      useEffect(() => {
+           if(!profileData.data.token){
+                 navigate('/login')
+           }
+      }, [navigate , profileData.data.token])
     
  
   return (
-    <div>
+    <div style={{display : 'flex' , justifyContent:"space-between",
+    alignItems:"center"}}>
+          <Box >
+                 <Button
+                    
+                    type="submit"
+                    fullWidth
+                    variant="contained"
+                    sx={{ mt: 3, mb: 2 , width:'200px'}}
+                    >
+                      profile data
+                   </Button>
+                   <Link to='/profile/myorder'>
+                   <Button
+                    type="submit"
+                    variant="contained"
+                    sx={{ mt: 3, mb:2  , textDecoration:'none', width:'200px' }}
+                    >
+                      my orders
+                   </Button>
+                   
+                   </Link>
+               </Box>
+               <Box sx={{ width: '100%' , mt: 4 }}>
+
           <Box 
           sx={{
                 justifyContent:"center",
@@ -142,6 +172,7 @@ const Profile = () => {
       </Button>
       </Box>
           </Box>
+               </Box>
           <ToastContainer />
     </div>
   );

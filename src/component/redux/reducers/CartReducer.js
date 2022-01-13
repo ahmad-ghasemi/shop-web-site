@@ -1,3 +1,4 @@
+
 const initialState = {
       selectedItems: [],
       itemsCounter: 0,
@@ -16,7 +17,7 @@ const initialState = {
   const cartReducer = (state=initialState, action) => {
       switch(action.type) {
           case "ADD_ITEM":
-              if (!state.selectedItems.find(item => item._id === action.payload._id)) {
+              if (!state.selectedItems.find(item => item._id === action.payload._id) ) {
                   state.selectedItems.push({
                       ...action.payload , 
                       count: 1 ,
@@ -26,8 +27,7 @@ const initialState = {
               return {
                   ...state,
                   selectedItems: [...state.selectedItems],
-                  ...sumItems(state.selectedItems)
-,
+                  ...sumItems(state.selectedItems),
                   checkout: false
               }
           case "REMOVE_ITEM":

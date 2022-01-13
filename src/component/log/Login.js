@@ -26,7 +26,7 @@ export default function Login() {
   const [errors , setErrors] = useState({});
   const [focus , setFocus] = useState({});
   const dispatch = useDispatch();
-  const {token} =useSelector(state => state.profileState.data)
+  const profileData =useSelector(state => state.profileState)
   const [data , setData] = useState({
     email: "",
     password: ""
@@ -41,14 +41,20 @@ export default function Login() {
     dispatch(loginAction(data))
   }
   const navigate = useNavigate();
-
   useEffect(()=>{
-    console.log(token)
-    if(token){
+    if(profileData.data.token){
      toast.success("Wow so easy!")
       navigate("/shop")
     }
-  } , [navigate , token])
+  } , [navigate , profileData.data.token])
+  useEffect(()=>{
+   if(profileData.error ==="Network Error"){
+     toast.error("Network Error")
+   }else if (profileData.error === "Request failed with status code 401"){
+     toast.error("Invalid Email or Password")
+   }
+
+  },[profileData.error])
   
 useEffect(()=>{
     setErrors(Validate(data))

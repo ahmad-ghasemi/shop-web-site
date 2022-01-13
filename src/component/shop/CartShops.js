@@ -1,14 +1,23 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector  } from 'react-redux';
 import CartShop from './CartShop';
 import Style from './cartshops.module.css'
 import { Link } from 'react-router-dom';
 
 const CartShops = () => {
-      const state = useSelector(state => state.cartState);
+      const [state , setState] = useState(useSelector(state => state.cartState))
       const {token} = useSelector(state => state.profileState.data)
-      
-      console.log(state)
+ 
+      useEffect(()=>{
+            if(state.total){
+             localStorage.setItem("cartState", JSON.stringify(state)) 
+            }
+      } , [state])
+      useEffect(()=>{
+            if(!state.total){
+                  setState(JSON.parse(localStorage.getItem("cartState")) ) 
+            }
+      },[])
       return (
              
               <div className={Style.main} >
@@ -30,16 +39,6 @@ const CartShops = () => {
                    </tr>
                    </table>
                     </div>
-                        {/* <div >
-                        <p>PRODUCT</p>
-                        <div className={Style.titrDetails}>
-                           <p>PRICE</p>  
-                           <p>QUANTITY</p>  
-                           <p>TOTAL</p>  
-                        </div>
-
-                  </div> */}
-             
                       <div className={Style.checkOutBox}>
                             <p>Cart Totals</p>
                             <div className={Style.continer}>
@@ -55,8 +54,7 @@ const CartShops = () => {
                                    <Link to="/login"><h4 className={Style.ContinueButton}>Continue</h4></Link> 
 
                             }
-                                 
-                            {/* <button onClick={()=> dispatch(deleteCart())}>Delete Cart</button> */}
+                           
                       </div>
 
                 </div>  

@@ -28,7 +28,7 @@ const Shop = () => {
                     <h2>Erorr somting wrong</h2> :
                     <div className={style.continer}>    
                           {productState.products.map((data , index ) => 
-                          <Card image={data._id} name={data.name}  key={index} data={data} /> )}   
+                          <Card image={data.image} name={data.name}  key={index} data={data} /> )}   
                      </div>
                            
 

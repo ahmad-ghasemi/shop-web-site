@@ -1,4 +1,4 @@
-import React from 'react';
+import React , { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useParams } from 'react-router';
 import { useSelector , useDispatch } from 'react-redux'
@@ -9,14 +9,10 @@ import {
        decrease ,
         } 
       from '../redux/action/CartAction'
+import { cartDetailAction } from '../redux/action/cartDetailAction';
 import ArrowCircleRightTwoToneIcon from '@mui/icons-material/ArrowCircleRightTwoTone';
 import Button from 'react-bootstrap/Button';
-import imageIphone from '../image/iPhone.jpg' 
-import imageCanon from '../image/Cannon.jpg'
-import imageLogitech from '../image/Logitech.jpg'
-import imageAirpods from '../image/Airpods.jpg'
-import imagePlaystation from '../image/Playstation.jpg'
-import imageAmazon from '../image/Amazon.png'
+
 import alarm from '../image/alarm.svg'
 import favorite from '../image/favorite.svg'
 import share from '../image/share.svg'
@@ -26,45 +22,21 @@ import price1 from '../image/price.jpg'
 
 
 // Style
-import styles from './cartDetail.module.css'
- const  canon   = "61af0ae4c971af479002de92";
- const iphone = "61af0ae4c971af479002de91";
- const airpod = "61af0ae4c971af479002de90";
- const playstation = "61af0ae4c971af479002de93";
- const logitech  = "61af0ae4c971af479002de94";
- const amazon = "61af0ae4c971af479002de95";
-const CartDetail = (props) => {
+ import styles from './cartDetail.module.css'
+import { width } from '@mui/system';
+
+const CartDetail = () => {
 
 
     const params = useParams()
-    const id = params.id
-    const data = useSelector(state => state.productState.products);
-    console.log(data)
-    const product = data[id];
-    console.log(product)
-     const {  description, price, category} = product;
-     const state = useSelector( state=> state.cartState);
-     const dispatch = useDispatch();
-     const ImageSelector =(image)=>{
-      switch (image) {
-            case canon:
-             return  imageCanon;    
-             case amazon:
-              return  imageAmazon;
-              case iphone:
-             return   imageIphone;
-             case playstation:
-             return   imagePlaystation;
-             case logitech:
-             return   imageLogitech;
-             case airpod:
-             return   imageAirpods;     
-   
-            default:
-                  break;
-      }
-   
-   }
+    const dispatch = useDispatch();
+    const product = useSelector(state => state.cartDetailState.productData);
+
+    useEffect(() => {
+         dispatch(cartDetailAction(params.id)); 
+    }, []);
+    const state = useSelector( state=> state.cartState);
+ 
    var condition=0;
    const quantityCount = (state, _id) => {
     const index = state.selectedItems.findIndex(item => item._id === _id);
@@ -87,14 +59,14 @@ const CartDetail = (props) => {
                 <br/>
                 <img src={alarm} alt='alarm' style={{cursor:'pointer'}}></img>
               </div>
-              <img className={styles.image} src={ImageSelector(product._id)} alt="product" />
+              <img className={styles.image} src={product.image} alt="product" />
               </div>
               <div className={styles.descriptionAll}>
                 <p className={styles.name}>{product.name}</p>
-                <p className={styles.description}>{description}</p>
-                <p className={styles.category}><span>Category:</span> {category}</p>
+                <p className={styles.description}>{product.description}</p>
+                <p className={styles.category}><span>Category:</span> {product.category}</p>
                 <p className={styles.brand}><span>Brand:</span> {product.brand}</p>
-                <p  className={styles.countInStock}><span >Count In Stock: </span>{product.countInStock}</p>
+                <p className={styles.countInStock}><span >Count In Stock: </span>{product.countInStock}</p>
 
               </div>
                 <div className={styles.buttonContainer}>
@@ -110,13 +82,22 @@ const CartDetail = (props) => {
                   <img src={price1} alt='price' style={{width:'30px'  , marginBottom:'5px' }}/>
                   <p style={{margin:'5px' }}>Seller Price </p>
                   </div> 
-               <span className={styles.price}>{price} $</span> 
+               <span className={styles.price}>{product.price} $</span> 
                   <br/>
                   <br/>
-                     {
-                       quantityCount(state , product._id) && condition >= 1 ? 
-                       <Button onClick={() => dispatch(increase(product)) } style={{backgroundColor : "#3f51b5" }}>+</Button> : 
-                       <Button onClick={() => dispatch(addItem(product)) } className={styles.addToCart}  >Add to Cart</Button>  
+                     { 
+                         product.countInStock > 0  ?
+                         quantityCount(state , product._id) && condition >= 1   ? 
+                          condition< product.countInStock &&
+                         <Button onClick={() => dispatch(increase(product)) } style={{backgroundColor : "#3f51b5" }}>+</Button> : 
+                         <Button onClick={() => dispatch(addItem(product)) } className={styles.addToCart}  >Add to Cart</Button>  
+                         :
+                          <h4 className={styles.notCount} style={{
+                            backgroundColor: "#3f51b5" ,
+                            color:"white" ,
+                            textAlign: "center" ,
+                            borderRadius:'10px' }}>Out of stock</h4>
+                   
                        
                       } 
           

@@ -24,9 +24,13 @@ import { useEffect } from "react";
   useEffect(()=>{
     if(!data.id){
       setStatus(false)
-      navigate('/login')
     }
   }, [data , status])
+  useEffect(()=>{
+    
+      setStatus(false)
+    
+  }, [navigate])
   
   return (
 <>

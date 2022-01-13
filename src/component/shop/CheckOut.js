@@ -55,10 +55,7 @@ const CheckOut = () => {
                   dispatch(checkOut())
             }
       }, [checkOutData , dispatch])
-      // useEffect(()=>{
-      //       if(checkOutData.data.itemsPrice){
-      //       dispatch(cartReducer(checkOut()))
-      // }}, [checkOutData])
+    
       
       return (
             <>

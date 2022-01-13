@@ -3,48 +3,48 @@ import { Link , Outlet } from 'react-router-dom'
 
 
 // image
- import imageIphone from '../image/iPhone.jpg'
- import imageCanon from '../image/Cannon.jpg'
- import imageLogitech from '../image/Logitech.jpg'
- import imageAirpods from '../image/Airpods.jpg'
- import imagePlaystation from '../image/Playstation.jpg'
- import imageAmazon from '../image/Amazon.png'
+//  import imageIphone from '../image/iPhone.jpg'
+//  import imageCanon from '../image/Cannon.jpg'
+//  import imageLogitech from '../image/Logitech.jpg'
+//  import imageAirpods from '../image/Airpods.jpg'
+//  import imagePlaystation from '../image/Playstation.jpg'
+//  import imageAmazon from '../image/Amazon.png'
  import Style from './card.module.css'
 
 
  // image id
- const canon = "61af0ae4c971af479002de92";
- const iphone = "61af0ae4c971af479002de91";
- const airpod = "61af0ae4c971af479002de90";
- const playstation = "61af0ae4c971af479002de93";
- const logitech  = "61af0ae4c971af479002de94";
- const amazon = "61af0ae4c971af479002de95";
+//  const canon = "61af0ae4c971af479002de92";
+//  const iphone = "61af0ae4c971af479002de91";
+//  const airpod = "61af0ae4c971af479002de90";
+//  const playstation = "61af0ae4c971af479002de93";
+//  const logitech  = "61af0ae4c971af479002de94";
+//  const amazon = "61af0ae4c971af479002de95";
 
 
 
 const Card = (props) => {
     const {image ,  data } = props;
 
-    const ImageSelector =(image)=>{
-               switch (image) {
-               case canon:
-                return  imageCanon;    
-                case amazon:
-                 return  imageAmazon;
-                 case iphone:
-                return   imageIphone;
-                case playstation:
-                return   imagePlaystation;
-                case logitech:
-                return   imageLogitech;
-                case airpod:
-                return   imageAirpods;     
+//     const ImageSelector =(image)=>{
+//                switch (image) {
+//                case canon:
+//                 return  imageCanon;    
+//                 case amazon:
+//                  return  imageAmazon;
+//                  case iphone:
+//                 return   imageIphone;
+//                 case playstation:
+//                 return   imagePlaystation;
+//                 case logitech:
+//                 return   imageLogitech;
+//                 case airpod:
+//                 return   imageAirpods;     
       
-               default:
-                     break;
-   }
+//                default:
+//                      break;
+//    }
 
-}
+// }
  
    
         
@@ -52,7 +52,7 @@ const Card = (props) => {
             <div className={Style.cardContiner}>
             
                 
-                <Link to={`/shop/${+(data._id.slice(23))}`} ><img className={Style.product} src={ImageSelector(image)} alt="cat"/>
+                <Link to={`/shop/${data._id}`} ><img className={Style.product} src={data.image} alt="cat"/>
                 <h1>{data.name}</h1>
                  </Link>
                 <div className={Style.action}>

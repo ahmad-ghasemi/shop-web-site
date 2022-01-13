@@ -8,6 +8,6 @@ export const loginAction = (data) => (dispatch) => {
              dispatch({type:"GET_PROFILE_REQUEST"})
              axios.post('http://45.138.24.15:9000/api/users/login' , loginInfo)
              .then(response => dispatch({type: "GET_PROFILE_SUCCSESS" , payload: response.data}))
-             .catch(error => dispatch({type:"GET_PROFILE_FAILURE" , payload: error.status}))
+             .catch(error => dispatch({type:"GET_PROFILE_FAILURE" , payload: error.message}))
 }
 

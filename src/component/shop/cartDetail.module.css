@@ -119,6 +119,13 @@
       margin: auto ;
       justify-content: center;
 }
+.notCount{
+     width: fit-content;
+     padding: 5px;
+     margin: auto;
+     align-items: center;
+
+} 
 @media (min-width: 1000px) {
       .addToCart{
             width: 200px;
