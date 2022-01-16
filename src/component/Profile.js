@@ -41,7 +41,7 @@ const Profile = () => {
   return (
     <div style={{display : 'flex' , justifyContent:"space-between",
     alignItems:"center"}}>
-          <Box >
+          <Box sx={{ml: 2}}>
                  <Button
                     
                     type="submit"
